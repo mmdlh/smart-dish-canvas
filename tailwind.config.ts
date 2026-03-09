@@ -5,11 +5,7 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: { "2xl": "1400px" },
-    },
+    container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
     extend: {
       fontFamily: {
         display: ["Orbitron", "sans-serif"],
@@ -41,6 +37,10 @@ export default {
           "red-light": "hsl(var(--kitchen-red-light))",
           purple: "hsl(var(--kitchen-purple))",
           "purple-light": "hsl(var(--kitchen-purple-light))",
+          indigo: "hsl(var(--kitchen-indigo))",
+          "indigo-light": "hsl(var(--kitchen-indigo-light))",
+          teal: "hsl(var(--kitchen-teal))",
+          "teal-light": "hsl(var(--kitchen-teal-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -67,6 +67,7 @@ export default {
         float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
         shimmer: { "0%": { backgroundPosition: "-200% 0" }, "100%": { backgroundPosition: "200% 0" } },
         "number-tick": { "0%": { transform: "translateY(100%)", opacity: "0" }, "100%": { transform: "translateY(0)", opacity: "1" } },
+        breathe: { "0%, 100%": { opacity: "0.4" }, "50%": { opacity: "0.8" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -77,6 +78,7 @@ export default {
         float: "float 3s ease-in-out infinite",
         shimmer: "shimmer 2s linear infinite",
         "number-tick": "number-tick 0.6s ease-out forwards",
+        breathe: "breathe 3s ease-in-out infinite",
       },
     },
   },
