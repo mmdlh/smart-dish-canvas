@@ -1,95 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 200 20% 97%;
+    --foreground: 210 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 200 25% 99%;
+    --card-foreground: 210 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 185 75% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 200 30% 94%;
+    --secondary-foreground: 210 25% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 200 20% 95%;
+    --muted-foreground: 210 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 215 85% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 200 25% 90%;
+    --input: 200 25% 90%;
+    --ring: 185 75% 40%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom smart kitchen tokens */
+    --kitchen-cyan: 185 75% 40%;
+    --kitchen-cyan-light: 185 70% 92%;
+    --kitchen-blue: 215 85% 55%;
+    --kitchen-blue-light: 215 80% 93%;
+    --kitchen-green: 155 65% 42%;
+    --kitchen-green-light: 155 60% 92%;
+    --kitchen-orange: 28 90% 55%;
+    --kitchen-orange-light: 28 85% 93%;
+    --kitchen-red: 0 75% 55%;
+    --kitchen-red-light: 0 70% 94%;
+    --kitchen-purple: 260 60% 55%;
+    --kitchen-purple-light: 260 55% 94%;
+
+    --glow-cyan: 0 0 20px hsl(185 75% 40% / 0.3);
+    --glow-blue: 0 0 20px hsl(215 85% 55% / 0.3);
+    --glow-green: 0 0 20px hsl(155 65% 42% / 0.3);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -98,8 +69,105 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
   }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-body {
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-xl;
+    box-shadow: 0 4px 24px hsl(200 25% 50% / 0.06), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glass-card-cyan {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-cyan));
+    box-shadow: 0 4px 24px hsl(185 75% 40% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glass-card-blue {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-blue));
+    box-shadow: 0 4px 24px hsl(215 85% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glass-card-green {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-green));
+    box-shadow: 0 4px 24px hsl(155 65% 42% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glass-card-orange {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-orange));
+    box-shadow: 0 4px 24px hsl(28 90% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glass-card-purple {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-purple));
+    box-shadow: 0 4px 24px hsl(260 60% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(185 75% 40% / 0.5), 0 0 40px hsl(185 75% 40% / 0.2);
+  }
+
+  .tech-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--kitchen-cyan) / 0.5), transparent);
+    height: 1px;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold font-display tracking-wider;
+    background: linear-gradient(135deg, hsl(var(--kitchen-cyan)), hsl(var(--kitchen-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .header-gradient {
+    background: linear-gradient(180deg, hsl(200 30% 98%), hsl(200 25% 96%));
+    border-bottom: 1px solid hsl(200 30% 90%);
+  }
+
+  .page-bg {
+    background: 
+      radial-gradient(ellipse at 20% 50%, hsl(185 75% 40% / 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, hsl(215 85% 55% / 0.03) 0%, transparent 50%),
+      hsl(var(--background));
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px currentColor; }
+  50% { opacity: 0.6; box-shadow: 0 0 8px currentColor; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
