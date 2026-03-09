@@ -36,7 +36,6 @@
 
     --radius: 0.75rem;
 
-    /* Custom smart kitchen tokens */
     --kitchen-cyan: 185 75% 40%;
     --kitchen-cyan-light: 185 70% 92%;
     --kitchen-blue: 215 85% 55%;
@@ -49,6 +48,10 @@
     --kitchen-red-light: 0 70% 94%;
     --kitchen-purple: 260 60% 55%;
     --kitchen-purple-light: 260 55% 94%;
+    --kitchen-indigo: 235 70% 58%;
+    --kitchen-indigo-light: 235 65% 94%;
+    --kitchen-teal: 170 60% 38%;
+    --kitchen-teal-light: 170 55% 92%;
 
     --glow-cyan: 0 0 20px hsl(185 75% 40% / 0.3);
     --glow-blue: 0 0 20px hsl(215 85% 55% / 0.3);
@@ -85,6 +88,10 @@
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-xl;
     box-shadow: 0 4px 24px hsl(200 25% 50% / 0.06), 0 1px 4px hsl(200 25% 50% / 0.04);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .glass-card:hover {
+    box-shadow: 0 8px 32px hsl(200 25% 50% / 0.1), 0 2px 8px hsl(200 25% 50% / 0.06);
   }
 
   .glass-card-cyan {
@@ -92,29 +99,40 @@
     border-left: 3px solid hsl(var(--kitchen-cyan));
     box-shadow: 0 4px 24px hsl(185 75% 40% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
   }
-
   .glass-card-blue {
     @apply glass-card;
     border-left: 3px solid hsl(var(--kitchen-blue));
     box-shadow: 0 4px 24px hsl(215 85% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
   }
-
   .glass-card-green {
     @apply glass-card;
     border-left: 3px solid hsl(var(--kitchen-green));
     box-shadow: 0 4px 24px hsl(155 65% 42% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
   }
-
   .glass-card-orange {
     @apply glass-card;
     border-left: 3px solid hsl(var(--kitchen-orange));
     box-shadow: 0 4px 24px hsl(28 90% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
   }
-
   .glass-card-purple {
     @apply glass-card;
     border-left: 3px solid hsl(var(--kitchen-purple));
     box-shadow: 0 4px 24px hsl(260 60% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+  .glass-card-red {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-red));
+    box-shadow: 0 4px 24px hsl(0 75% 55% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+  .glass-card-indigo {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-indigo));
+    box-shadow: 0 4px 24px hsl(235 70% 58% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
+  }
+  .glass-card-teal {
+    @apply glass-card;
+    border-left: 3px solid hsl(var(--kitchen-teal));
+    box-shadow: 0 4px 24px hsl(170 60% 38% / 0.08), 0 1px 4px hsl(200 25% 50% / 0.04);
   }
 
   .glow-text {
@@ -134,27 +152,69 @@
     background-clip: text;
   }
 
+  .stat-value-green {
+    @apply text-3xl font-bold font-display tracking-wider;
+    background: linear-gradient(135deg, hsl(var(--kitchen-green)), hsl(var(--kitchen-teal)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-value-orange {
+    @apply text-3xl font-bold font-display tracking-wider;
+    background: linear-gradient(135deg, hsl(var(--kitchen-orange)), hsl(var(--kitchen-red)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .status-dot {
-    @apply w-2 h-2 rounded-full;
+    @apply w-2.5 h-2.5 rounded-full;
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
   .header-gradient {
-    background: linear-gradient(180deg, hsl(200 30% 98%), hsl(200 25% 96%));
+    background: linear-gradient(180deg, hsl(200 40% 99%), hsl(200 30% 96%));
     border-bottom: 1px solid hsl(200 30% 90%);
+    box-shadow: 0 2px 16px hsl(200 25% 50% / 0.06);
   }
 
   .page-bg {
     background: 
-      radial-gradient(ellipse at 20% 50%, hsl(185 75% 40% / 0.03) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, hsl(215 85% 55% / 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 20%, hsl(185 75% 40% / 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, hsl(215 85% 55% / 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(155 65% 42% / 0.02) 0%, transparent 60%),
       hsl(var(--background));
+  }
+
+  .section-title {
+    @apply font-semibold text-sm flex items-center gap-2 pb-3 mb-4 border-b border-border/50;
+  }
+
+  .mini-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--kitchen-cyan) / 0.3), hsl(var(--kitchen-blue) / 0.3));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; box-shadow: 0 0 4px currentColor; }
-  50% { opacity: 0.6; box-shadow: 0 0 8px currentColor; }
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px currentColor; }
+  50% { opacity: 0.5; box-shadow: 0 0 12px currentColor; }
 }
 
 @keyframes float {
@@ -170,4 +230,14 @@
 @keyframes scan-line {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
