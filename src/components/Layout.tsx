@@ -94,10 +94,10 @@ const Layout = () => {
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-32 h-32 rounded-full bg-gradient-to-b from-primary/5 to-transparent" />
             </div>
-            <h1 className="font-display text-xl font-bold tracking-[0.2em] text-primary glow-text whitespace-nowrap relative">
+            <h1 className="font-display text-3xl font-bold tracking-[0.25em] text-primary glow-text whitespace-nowrap relative">
               智慧厨房
             </h1>
-            <span className="text-[10px] text-muted-foreground tracking-[0.3em] relative">SMART KITCHEN</span>
+            <span className="text-[11px] text-muted-foreground tracking-[0.35em] relative">SMART KITCHEN</span>
           </div>
 
           <nav className="flex items-stretch gap-1 flex-1">
