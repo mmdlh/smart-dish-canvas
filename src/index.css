@@ -86,7 +86,7 @@
   }
 
   .glass-card {
-    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-xl;
+    @apply bg-card/60 backdrop-blur-md border border-border/40 rounded-xl;
     box-shadow: 0 4px 24px hsl(200 25% 50% / 0.06), 0 1px 4px hsl(200 25% 50% / 0.04);
     transition: box-shadow 0.3s, transform 0.3s;
   }
@@ -181,9 +181,8 @@
 
   .page-bg {
     background: 
-      radial-gradient(ellipse at 10% 20%, hsl(185 75% 40% / 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 80%, hsl(215 85% 55% / 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, hsl(155 65% 42% / 0.02) 0%, transparent 60%),
+      radial-gradient(ellipse at 10% 20%, hsl(185 75% 40% / 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, hsl(215 85% 55% / 0.03) 0%, transparent 50%),
       url('/src/assets/kitchen-bg.jpg') center/cover no-repeat fixed,
       hsl(var(--background));
   }
