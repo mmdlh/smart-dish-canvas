@@ -184,6 +184,7 @@
       radial-gradient(ellipse at 10% 20%, hsl(185 75% 40% / 0.04) 0%, transparent 50%),
       radial-gradient(ellipse at 90% 80%, hsl(215 85% 55% / 0.04) 0%, transparent 50%),
       radial-gradient(ellipse at 50% 50%, hsl(155 65% 42% / 0.02) 0%, transparent 60%),
+      url('/src/assets/kitchen-bg.jpg') center/cover no-repeat fixed,
       hsl(var(--background));
   }
 
